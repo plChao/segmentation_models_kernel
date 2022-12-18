@@ -1,9 +1,9 @@
 import pytest
 import numpy as np
 
-import segmentation_models as sm
-from segmentation_models.utils import set_regularization
-from segmentation_models import Unet
+import segmentation_models_plchao as sm
+from segmentation_models_plchao.utils import set_regularization
+from segmentation_models_plchao import Unet
 
 if sm.framework() == sm._TF_KERAS_FRAMEWORK_NAME:
     from tensorflow import keras
