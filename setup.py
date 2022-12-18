@@ -12,10 +12,10 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'segmentation_models'
+NAME = 'segmentation_models_plchao'
 DESCRIPTION = 'Image segmentation models with pre-trained backbones with Keras.'
-URL = 'https://github.com/qubvel/segmentation_models'
-EMAIL = 'qubvel@gmail.com'
+URL = 'https://github.com/plChao/segmentation_models_kernel'
+EMAIL = 'plchao0415@gmail.com'
 AUTHOR = 'Pavel Yakubovskiy'
 REQUIRES_PYTHON = '>=3.0.0'
 VERSION = None
