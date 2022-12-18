@@ -35,7 +35,6 @@ def Conv3x3BnReLU(filters, use_batchnorm, name=None):
     def wrapper(input_tensor):
         return Conv2dBn(
             filters,
-            kernel_size=3,
             activation='relu',
             kernel_initializer='he_uniform',
             padding='same',
