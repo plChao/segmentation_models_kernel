@@ -8,6 +8,7 @@ backend = None
 layers = None
 models = None
 keras_utils = None
+kernel_size = None
 
 
 # ---------------------------------------------------------------------
@@ -20,6 +21,7 @@ def get_submodules():
         'models': models,
         'layers': layers,
         'utils': keras_utils,
+        'kernel_size': kernel_size
     }
 
 
@@ -171,6 +173,7 @@ def Unet(
         decoder_block_type='upsampling',
         decoder_filters=(256, 128, 64, 32, 16),
         decoder_use_batchnorm=True,
+        kernel_size_local_set = 3,
         **kwargs
 ):
     """ Unet_ is a fully convolution neural network for image semantic segmentation
@@ -210,6 +213,9 @@ def Unet(
     global backend, layers, models, keras_utils
     submodule_args = filter_keras_submodules(kwargs)
     backend, layers, models, keras_utils = get_submodules_from_kwargs(submodule_args)
+
+    global kernel_size
+    kernel_size = kernel_size_local_set
 
     if decoder_block_type == 'upsampling':
         decoder_block = DecoderUpsamplingX2Block
