@@ -229,13 +229,11 @@ def Unet(
         input_shape=input_shape,
         weights=encoder_weights,
         include_top=False,
-        # kernel_sizes=[3, 3, 5, 3, 5, 5, 3],
-        kernel_sizes=[5, 5, 7, 5, 7, 7, 5],
         **kwargs,
     )
 
     if encoder_features == 'default':
-        encoder_features = Backbones.get_feature_layers(backbone_name, n=4)
+        encoder_features = Backbones.get_feature_layers(backbone_name, n=5)
 
     model = build_unet(
         backbone=backbone,
