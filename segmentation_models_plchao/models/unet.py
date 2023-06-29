@@ -8,7 +8,7 @@ backend = None
 layers = None
 models = None
 keras_utils = None
-kernel_size = None
+kernel_size = 7
 
 
 # ---------------------------------------------------------------------
@@ -142,7 +142,7 @@ def build_unet(
     # model head (define number of output classes)
     x = layers.Conv2D(
         filters=classes,
-        kernel_size=(3, 3),
+        kernel_size=(7, 7),
         padding='same',
         use_bias=True,
         kernel_initializer='glorot_uniform',
