@@ -8,7 +8,7 @@ backend = None
 layers = None
 models = None
 keras_utils = None
-kernel_size = 7
+kernel_size = None
 
 
 # ---------------------------------------------------------------------
@@ -35,6 +35,7 @@ def Conv3x3BnReLU(filters, use_batchnorm, name=None):
     def wrapper(input_tensor):
         return Conv2dBn(
             filters,
+            kernel_size=3,
             activation='relu',
             kernel_initializer='he_uniform',
             padding='same',
@@ -142,7 +143,7 @@ def build_unet(
     # model head (define number of output classes)
     x = layers.Conv2D(
         filters=classes,
-        kernel_size=(7, 7),
+        kernel_size=(3, 3),
         padding='same',
         use_bias=True,
         kernel_initializer='glorot_uniform',
@@ -229,8 +230,6 @@ def Unet(
         input_shape=input_shape,
         weights=encoder_weights,
         include_top=False,
-        # kernel_sizes=[3, 3, 5, 3, 5, 5, 3],
-        kernel_sizes=[5, 5, 7, 5, 7, 7, 5],
         **kwargs,
     )
 
